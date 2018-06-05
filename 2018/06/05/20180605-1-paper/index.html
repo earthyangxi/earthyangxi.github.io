@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="转义\">
+<meta name="description" content="diagnose feature representations of the CNN.mine latent relationships between representations of different attributes inside the CNN.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown 语法整理">
-<meta property="og:url" content="http://yoursite.com/2018/03/05/20180305-4-markdown/index.html">
+<meta property="og:title" content="Examining CNN Representations With Respect To Dataset Bias">
+<meta property="og:url" content="http://yoursite.com/2018/06/05/20180605-1-paper/index.html">
 <meta property="og:site_name" content="Xi Yang&#39;s Notebook">
-<meta property="og:description" content="转义\">
+<meta property="og:description" content="diagnose feature representations of the CNN.mine latent relationships between representations of different attributes inside the CNN.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-05T13:28:29.121Z">
+<meta property="og:updated_time" content="2018-06-05T02:18:48.777Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown 语法整理">
-<meta name="twitter:description" content="转义\">
+<meta name="twitter:title" content="Examining CNN Representations With Respect To Dataset Bias">
+<meta name="twitter:description" content="diagnose feature representations of the CNN.mine latent relationships between representations of different attributes inside the CNN.">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/05/20180305-4-markdown/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/05/20180605-1-paper/"/>
 
 
 
 
 
-  <title>Markdown 语法整理 | Xi Yang's Notebook</title>
+  <title>Examining CNN Representations With Respect To Dataset Bias | Xi Yang's Notebook</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/20180305-4-markdown/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/20180605-1-paper/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xi Yang">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Markdown 语法整理</h1>
+          <h1 class="post-title" itemprop="name headline">Examining CNN Representations With Respect To Dataset Bias</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T14:41:53+09:00">
-                2018-03-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-05T10:24:19+09:00">
+                2018-06-05
               </time>
             
 
@@ -304,8 +304,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Memo/" itemprop="url" rel="index">
-                    <span itemprop="name">Memo</span>
+                  <a href="/categories/Paper/" itemprop="url" rel="index">
+                    <span itemprop="name">Paper</span>
                   </a>
                 </span>
 
@@ -341,16 +341,19 @@
       
 
       
-        <h1 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h1><pre><code>\
-</code></pre><a id="more"></a>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="行内"><a href="#行内" class="headerlink" title="行内"></a>行内</h2><pre><code>`
-</code></pre><h2 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h2><p>四个空格、一个Tab、或者</p>
-<pre><code>```
-</code></pre><h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><pre><code>![image](xxx/xxx.JPG)
-</code></pre><h1 id="文章折叠"><a href="#文章折叠" class="headerlink" title="文章折叠"></a>文章折叠</h1><pre><code>&lt;!--more--&gt; 
-</code></pre><h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><pre><code>***
-</code></pre><h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><pre><code>[//]:
-</code></pre>
+        <p>diagnose feature representations of the CNN.<br>mine latent relationships between representations of different attributes inside the CNN.</p>
+<a id="more"></a>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>representations flaws caused by potential bias in the collection of training samples.<br>ref: Unbiased look at dataset, 2011</p>
+<p>CNN representations may be biased even when the CNN achieves a high accuracy on testing samples, because testing samples may have a similar bias.</p>
+<p>compute the relationship between each pair of attributes (Ai, Aj), i.e. identifying whether Ai is positively/negatively/not related to Aj.</p>
+<p>attributes always co-appear</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method:"></a>Method:</h2><p>mine relationships<br>annotate some ground-truth attribute relationships<br>compute the Kullback-Leibler (KL) divergence between the mined relationships and ground-truth relationships to discover attributes that are not well learned.</p>
+<p>In fact, how to define ground-truth relationships is still an open problem.<br>!!! I think sometimes it is very difficult to attract sb’s attention, because of subconsciousness.</p>
+<p>annotation cost</p>
+<h1 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h1><p>representations attribute</p>
+<p>this is the first study to diagnose unreliable contextual information from CNN representations w.r.t. dataset bias.</p>
+<h1 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h1><p>The goal is to identify attributes that are not well learned and to discover blind spots and failure modes in attribute representation.</p>
+
       
     </div>
     
@@ -374,8 +377,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/05/20180305-3-git/" rel="next" title="Git 命令整理">
-                <i class="fa fa-chevron-left"></i> Git 命令整理
+              <a href="/2018/05/24/20180524-1-paper/" rel="next" title="Towards Better Analysis of Deep Convolutional Neural Networks">
+                <i class="fa fa-chevron-left"></i> Towards Better Analysis of Deep Convolutional Neural Networks
               </a>
             
           </div>
@@ -384,8 +387,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/05/20180305-5-hexo/" rel="prev" title="Hexo 命令">
-                Hexo 命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/05/20180605-2-paper/" rel="prev" title="Interpreting CNN Knowledge Via An Explanatory Graph">
+                Interpreting CNN Knowledge Via An Explanatory Graph <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -509,7 +512,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#转义"><span class="nav-number">1.</span> <span class="nav-text">转义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#行内"><span class="nav-number">2.1.</span> <span class="nav-text">行内</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区块"><span class="nav-number">2.2.</span> <span class="nav-text">区块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图片"><span class="nav-number">3.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文章折叠"><span class="nav-number">4.</span> <span class="nav-text">文章折叠</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分割线"><span class="nav-number">5.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注释"><span class="nav-number">6.</span> <span class="nav-text">注释</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">1.1.</span> <span class="nav-text">Method:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-work"><span class="nav-number">2.</span> <span class="nav-text">Related work</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Algorithm"><span class="nav-number">3.</span> <span class="nav-text">Algorithm</span></a></li></ol></div>
             
 
           </div>
